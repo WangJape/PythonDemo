@@ -1,0 +1,20 @@
+import tkinter
+import tkinter.messagebox
+import tkinter.ttk
+
+root  = tkinter.Tk()
+root.title('建鹏通讯簿')
+root['height'] = 400
+root['width'] = 400
+labelName = tkinter.Label(root,text = '姓名：')
+labelName.place(x = 0,y = 5,width = 80,height = 20) #姓名
+entryName = tkinter.Entry(root)
+entryName.place(x = 100,y = 5,width = 80,height = 20)#姓名输入
+
+labelSex = tkinter.Label(root,text = '性别：')
+labelSex.place(x = 200,y = 5,width = 80,height = 20) #性别
+sex = {'男':1,'女':}
+comboSex = tkinter.ttk.Combobox(root,values = tuple(sex.keys()))
+comboSex.place(x = 300,y = 5,width = 80,height = 20)#性别输入
+
+
