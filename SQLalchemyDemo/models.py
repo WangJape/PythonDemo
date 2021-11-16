@@ -20,3 +20,8 @@ class User1(Base):
     sex = Column(VARCHAR(1))
     qq = Column(String(10))
     birthday = Column(Date)
+
+class Test(Base):
+    __tablename__ = 'test'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))

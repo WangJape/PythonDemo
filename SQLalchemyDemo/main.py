@@ -6,7 +6,7 @@ from models import *
 # echo: 当设置为True时会将orm语句转化为sql语句打印，一般debug的时候可用
 # pool_size: 连接池的大小，默认为5个，设置为0时表示连接无限制
 # pool_recycle: 设置时间以限制数据库多久没连接自动断开
-engine = create_engine('mysql+pymysql://root:123456@192.168.0.105:3306/jape?charset=utf8',
+engine = create_engine('mysql+pymysql://root:123456@192.168.30.128:3306/jape?charset=utf8',
                        echo=True,
                        pool_size=5,
                        pool_recycle=60 * 30)
@@ -38,7 +38,16 @@ def query_page(page_no, page_size):
         print(user.uuid)
 
 
+def addTest(id):
+    test = Test(id=id, name='jape' + str(id))
+    # 添加到session:
+    session.add(test)
+    # 提交即保存到数据库:
+    session.commit()
+
+
 if __name__ == '__main__':
-    query_page(1, 100)
+    for i in range(1, 8):
+        addTest(i)
     # 关闭session:
     session.close()
